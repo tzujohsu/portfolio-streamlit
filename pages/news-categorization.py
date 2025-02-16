@@ -32,7 +32,7 @@ def get_random_cnn_article():
     soup = BeautifulSoup(response.text, "html.parser")
     
     # Extract article links
-    articles = [a["href"] for a in soup.find_all("a", href=True) if a["href"].startswith("/")]
+    articles = [a["href"] for a in soup.find_all("a", href=True) if a["href"].startswith("/")][1:]
     if not articles:
         return "No articles found."
     
