@@ -1,0 +1,19 @@
+[[pages]]
+path = "pages/home.py"
+name = "Home"
+
+[[pages]]
+path = "pages/news-categorization.py"
+name = "News Categorization"
+icon = ":newspaper:"
+
+[[pages]]
+path = "pages/sales-dashboard.py"
+name = "Sales Analytics Dashboard"
+icon = ":chart_with_upwards_trend:"
+
+[[pages]]
+path = "pages/timeline.py"
+name = "Timeline Generator"
+icon = ":speech_balloon:"
+
