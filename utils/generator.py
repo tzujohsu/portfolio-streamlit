@@ -34,13 +34,13 @@ class HuggingfaceTimelineGenerator:
             except:
                 pass
             
-            summarized_list.append({'date': datetime.strptime(date, '%Y-%m-%d'), 'content': summarized_result})
+            summarized_list.append({'date': datetime.strptime(date, '%Y-%m-%d'), 'content': summarized_result + '<br> Test line break'})
 
         return summarized_list
 
     def get_timeline_data(self, summarized_list, user_prompt):
         timeline = self.timeline_template.copy()
-        timeline['title']['text']['text'] = f"Timeline of events: {user_prompt}"
+        timeline['title']['text']['text'] = f"User Input: {user_prompt}"
         timeline['events'] = []
         for item in summarized_list:
             date, text = item['date'], str(item['content'])
@@ -54,7 +54,7 @@ class HuggingfaceTimelineGenerator:
                     "microsecond": 0
                 },
                 "text": {
-                    "headline": f"Events about {user_prompt} on {str(date).split(' ')[0]}",
+                    "headline": f"Events about {user_prompt}",
                     "text": f" {text} "
                 }
             })

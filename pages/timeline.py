@@ -16,9 +16,9 @@ st.markdown(
     """
     <div style="width: 60%; margin: 0 auto; text-align: center; font-size: 1.1rem;">
         <p>
-        ChronoScope is an innovative LLM-powered tool that transforms news transcripts into offers structured, temporal insights. <br> <br>
+        ChronoScope is an innovative LLM-powered tool that transforms news transcripts into structured, temporal insights. <br> <br>
         Simply enter your topic or query in the input box below, and the tool will: <br>
-        1. Retrieve relevant information from the our RAG-Chorma database <br>
+        1. Retrieve relevant information from the our RAG-Chroma database <br>
         2. Generate a summarized timeline of events relevant to your input <br>
         3. Display an interactive timeline visualization <br>
         </p>
