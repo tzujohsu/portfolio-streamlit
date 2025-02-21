@@ -45,7 +45,7 @@ css = """
 }
 .project-title {
     color: #3b82f6;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -68,7 +68,7 @@ css = """
 .project-description {
     color: #4b5563;
     margin-top: 1rem;
-    line-height: 1.5;
+    line-height: 1.2;
 }
 
 /* Responsive breakpoints */
