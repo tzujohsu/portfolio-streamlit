@@ -3,6 +3,18 @@ import streamlit.components.v1 as components
 from css import css
 
 st.markdown("<h1 style='text-align: center; color: black;'>Sales Analytics Dashboard</h1>", unsafe_allow_html=True)
+# st.markdown(
+#     """
+#     <br>
+#     <div style="text-align: center;">
+#         <a href="https://public.tableau.com/views/Sales-Dashboard_17384750055410/OverviewDashboard?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">
+#             <img src="https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=Tableau&logoColor=white" alt="Tableau" />
+#         </a>
+#     </div>
+#     <br>
+#     """, 
+#     unsafe_allow_html=True
+# )
 
 st.markdown(
     """
