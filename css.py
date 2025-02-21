@@ -15,8 +15,8 @@ css = """
     border-radius: 0.5rem;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     width: calc(33.333% - 24px);
-    max-width: 380px;
-    min-width: 320px;
+    max-width: 360px;
+    min-width: 310px;
     position: relative;
     transition: all 0.3s ease;
     margin-bottom: 24px;
