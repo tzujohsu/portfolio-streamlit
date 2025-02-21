@@ -15,10 +15,10 @@ projects = [
         "description": "Designed to provide a clear, structured view of sales performance and customer behavior. Supporting various filtering options."
     },
     {
-        "title": "RAG Timeline Generator",
+        "title": "ChronoScope: News Timeline Generator",
         "task": "Retrieval Augmented Generation",
         "model": "Chroma, Langchian",
         "href": "timeline",
-        "description": "Generates a timeline based on recent news, highlighting key events with summarized descriptions."
+        "description": "Generates an interactive timeline based on your input topic with summarized descriptions with Chroma RAG and mistral-7b."
     }
 ]
