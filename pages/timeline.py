@@ -3,10 +3,6 @@ import os
 import re
 import json
 
-import pysqlite3
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
 from utils.retriever import Retriever
 from utils.generator import HuggingfaceTimelineGenerator
 from utils.document_loader import DocumentLoader
