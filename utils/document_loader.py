@@ -1,3 +1,8 @@
+import sys
+__import__('pysqlite3')
+import pysqlite3
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import os
 from langchain_openai import OpenAIEmbeddings
 from typing import List
