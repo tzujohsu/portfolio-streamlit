@@ -8,7 +8,7 @@ from utils.generator import HuggingfaceTimelineGenerator
 from utils.document_loader import DocumentLoader
 from streamlit_timeline import timeline
 
-import pysqlite3
+__import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
