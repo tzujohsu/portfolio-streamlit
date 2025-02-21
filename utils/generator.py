@@ -13,7 +13,7 @@ class HuggingfaceTimelineGenerator:
             self.timeline_template = json.load(f)
         self.API_URL = f"https://api-inference.huggingface.co/models/{model_name}"
         self.headers = {"Authorization": 'Bearer ' + st.secrets["HUGGINGFACE_TOKEN"]}
-        self.prompt = 'Summarize the following content into 3 sentences ONLY and nothing else. Be concise and focus on the fact. Return as 1. <br> 2. <br> 3. <br> \n [Content] '
+        self.prompt = 'Summarize the following content into 3 sentences ONLY and nothing else. Be concise and focus on the fact. Add html line break "<br>" between each sentence, Return as 1. <br> 2. <br> 3. <br> \n [Content] '
 
     def get_summary(self, retrieved_df):
         content_df = retrieved_df.groupby('date')['content'].apply(
@@ -34,7 +34,7 @@ class HuggingfaceTimelineGenerator:
             except:
                 pass
             
-            summarized_list.append({'date': datetime.strptime(date, '%Y-%m-%d'), 'content': summarized_result + '<br> Test line break'})
+            summarized_list.append({'date': datetime.strptime(date, '%Y-%m-%d'), 'content': summarized_result})
 
         return summarized_list
 
