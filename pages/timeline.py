@@ -22,9 +22,9 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
-st.info("""Simply enter your topic or query in the input box below, and the tool will:
-        1. Retrieve relevant information from the our RAG-Chorma database
-        2. Generate a summarized timeline of events relevant to your input
+st.info("""Simply enter your topic or query in the input box below, and the tool will: \n
+        1. Retrieve relevant information from the our RAG-Chorma database \n
+        2. Generate a summarized timeline of events relevant to your input \n
         3. Display an interactive timeline visualization""", icon="ℹ️")
 
 
