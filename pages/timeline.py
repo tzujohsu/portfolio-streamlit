@@ -17,16 +17,16 @@ st.markdown(
     <div style="width: 60%; margin: 0 auto; text-align: center; font-size: 1.1rem;">
         <p>
         ChronoScope is an innovative LLM-powered tool that transforms news transcripts into offers structured, temporal insights. <br> <br>
-         
-        Simply enter your topic or query in the input box below, and the tool will: <br>
-        1. Retrieve relevant information from the our RAG-Chorma database <br>
-        2. Generate a summarized timeline of events relevant to your input <br>
-        3. Display an interactive timeline visualization <br>
         </p>
     </div>
     """, 
     unsafe_allow_html=True
 )
+st.info("""Simply enter your topic or query in the input box below, and the tool will:
+        1. Retrieve relevant information from the our RAG-Chorma database
+        2. Generate a summarized timeline of events relevant to your input
+        3. Display an interactive timeline visualization""", icon="ℹ️")
+
 
 # Initialize necessary components
 if "db" not in st.session_state:
