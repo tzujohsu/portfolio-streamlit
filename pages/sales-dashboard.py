@@ -6,11 +6,11 @@ st.markdown("<h1 style='text-align: center; color: black;'>Sales Analytics Dashb
 
 st.markdown(
     """
-    <div style="width: 75%; margin: 0 auto; text-align: center; font-size: 1.1rem;">
+    <div style="width: 70%; margin: 0 auto; text-align: center; font-size: 1.1rem;">
         <p>
-        Built to help businesses track performance, customer behavior, and shipping efficiency across multiple dimensions, <br> 
+        Built to help businesses track performance, customer behavior, and shipping efficiency across multiple dimensions,  
         it combines powerful filtering capabilities with intuitive visualizations. 
-        From high-level KPIs to detailed customer analytics, <br>
+        From high-level KPIs to detailed customer analytics,
         this dashboard delivers the key metrics business leaders need to make informed decisions.
         </p>
     </div>

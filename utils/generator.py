@@ -28,6 +28,11 @@ class HuggingfaceTimelineGenerator:
             }
             response = requests.post(self.API_URL, headers=self.headers, json=payload)
             summarized_result = response.json()[0]['generated_text'].split('[Result]')[1].strip()
+            try:
+                summarized_results = summarized_result.split('<br>')
+                summarized_result = '<br> <br> '.join([result.strip() for result in summarized_results])
+            except:
+                pass
             
             summarized_list.append({'date': datetime.strptime(date, '%Y-%m-%d'), 'content': summarized_result})
 

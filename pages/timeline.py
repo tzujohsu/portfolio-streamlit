@@ -10,14 +10,14 @@ from streamlit_timeline import timeline
 
 
 
-st.markdown("<h1 style='text-align: center; color: black;'>Chronoscope: Weaving News Threads Through Time</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black;'>ChronoEvents: Timeline Generator</h1>", unsafe_allow_html=True)
 
 st.markdown(
     """
     <div style="width: 60%; margin: 0 auto; text-align: center; font-size: 1.1rem;">
         <p>
         ChronoScope is an innovative LLM-powered tool that transforms news transcripts into intuitive, chronological narratives. 
-        Leveraging RAG (Retrieval Augmented Generation) AI summarization, it offers structured, temporal insights to news consumption. <br> <br>
+        Leveraging RAG (Retrieval Augmented Generation) and AI summarization, it offers structured, temporal insights to news consumption. <br> <br>
         Simply enter your topic or query in the input box below, and the tool will: <br>
         1. Retrieve relevant information from the our RAG-Chorma database <br>
         2. Generate a summarized timeline of events relevant to your input <br>
