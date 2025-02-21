@@ -1,8 +1,5 @@
 import streamlit as st
 from css import css
-import sys
-import pysqlite3
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 from projects import *
 from components import *
 
