@@ -7,7 +7,7 @@ css = """
     flex-wrap: wrap;
     margin: 2rem auto;
     padding: 0 1rem;
-    max-width: 1000px;
+    max-width: 1150px;
 }
 .project-card {
     background-color: white;
