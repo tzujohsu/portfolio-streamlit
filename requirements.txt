@@ -1,2 +1,10 @@
 beautifulsoup4
 st-pages
+openai
+langchain_chroma
+langchain_community
+langchain-openai
+langchain_text_splitters
+langchain_community
+streamlit_timeline
+sentence-transformers
