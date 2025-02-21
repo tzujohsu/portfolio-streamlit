@@ -8,8 +8,11 @@ from utils.generator import HuggingfaceTimelineGenerator
 from utils.document_loader import DocumentLoader
 from streamlit_timeline import timeline
 
-st.markdown("<h1 style='text-align: center; color: black;'>Chronoscope: Weaving News Threads Through Time</h1>", unsafe_allow_html=True)
+import pysqlite3
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
+st.markdown("<h1 style='text-align: center; color: black;'>Chronoscope: Weaving News Threads Through Time</h1>", unsafe_allow_html=True)
 
 st.markdown(
     """

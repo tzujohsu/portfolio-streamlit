@@ -1,6 +1,7 @@
 beautifulsoup4
 st-pages
 openai
+pysqlite3-binary
 langchain_chroma
 langchain_community
 langchain-openai
