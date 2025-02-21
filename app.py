@@ -3,7 +3,7 @@ from st_pages import add_page_title, get_nav_from_toml
 import sys
 __import__('pysqlite3')
 import pysqlite3
-sys.modules['sqlite3'] = sys.modules["pysqlite3"]
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 st.set_page_config(page_title="Jocelyn Hsu - Portfolio", layout="wide")
 
