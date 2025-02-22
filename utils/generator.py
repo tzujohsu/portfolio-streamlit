@@ -44,12 +44,9 @@ class HuggingfaceTimelineGenerator:
             except:
                 pass
 
-            try:
-                if '<br>' not in summarized_result:
-                    summarized_result = insert_br_in_pattern(summarized_result)
-            except:
-                pass
-            
+            if '<br>' not in summarized_result:
+                summarized_result = insert_br_in_pattern(summarized_result)
+
             summarized_list.append({'date': datetime.strptime(date, '%Y-%m-%d'), 'content': summarized_result})
 
         return summarized_list
