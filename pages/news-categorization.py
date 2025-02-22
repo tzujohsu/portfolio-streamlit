@@ -9,28 +9,6 @@ st.markdown("""
     <h1 style='text-align: center; margin-bottom: 2rem;'>News Categorization Tool</h1>
     """, unsafe_allow_html=True)
 
-# st.markdown(
-#     """
-#     <div style="text-align: center;">
-#         <a href="https://aws.amazon.com/?nc2=h_lg" target="_blank">
-#             <img src="https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS" />
-#         </a>
-#         <a href="https://www.docker.com/" target="_blank">
-#             <img src="https://img.shields.io/badge/docker-257bd6?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-#         </a>
-#         <a href="https://scikit-learn.org/stable/" target="_blank">
-#             <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-learn" />
-#         </a>
-#         <a href="https://www.zenml.io/" target="_blank">
-#             <img src="https://img.shields.io/badge/ZenML--7b51e3?style=for-the-badge&logo=zenml&logoColor=white" alt="ZenML" />
-#         </a>
-#         <a href="https://mlflow.org/" target="_blank">
-#             <img src="https://img.shields.io/badge/MLflow-0194E2?logo=mlflow&logoColor=fff&style=for-the-badge" alt="MLflow" />
-#         </a>
-#     </div>
-#     """, 
-#     unsafe_allow_html=True
-# )
 
 def get_categorization(text: str):
     url = "http://18.205.115.194/categorize"

@@ -39,26 +39,35 @@ class HuggingfaceTimelineGenerator:
         return summarized_list
 
     def get_timeline_data(self, summarized_list, user_prompt):
-        timeline = self.timeline_template.copy()
-        timeline['title']['text']['text'] = f"User Input: {user_prompt}"
-        timeline['events'] = []
+        # # A streamlit template, comment out for future use.
+        # timeline = self.timeline_template.copy()
+        # timeline['title']['text']['text'] = f"User Input: {user_prompt}"
+        # timeline['events'] = []
+        # for item in summarized_list:
+        #     date, text = item['date'], str(item['content'])
+        #     timeline['events'].append({
+        #         "start_date": {
+        #             "year": date.year,
+        #             "month": date.month,
+        #             "day": date.day,
+        #             "minute": 0,
+        #             "second": 0,
+        #             "microsecond": 0
+        #         },
+        #         "text": {
+        #             "headline": f"Events about {user_prompt}",
+        #             "text": f" {text} "
+        #         }
+        #     })
+
+        events = []
         for item in summarized_list:
-            date, text = item['date'], str(item['content'])
-            timeline['events'].append({
-                "start_date": {
-                    "year": date.year,
-                    "month": date.month,
-                    "day": date.day,
-                    "minute": 0,
-                    "second": 0,
-                    "microsecond": 0
-                },
-                "text": {
-                    "headline": f"Events about {user_prompt}",
-                    "text": f" {text} "
-                }
+            date, text = str(item['date']).split()[0], (str(item['content'])).strip()
+            events.append({
+                'title':date,
+                'description':text
             })
-        return timeline
+        return events
         
 
 class OpenAITimelineGenerator:

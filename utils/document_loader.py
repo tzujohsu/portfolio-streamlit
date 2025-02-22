@@ -13,15 +13,6 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
-# class MyEmbeddings:
-#     def __init__(self, model):
-#         self.model = model
-
-#     def embed_documents(self, texts: List[str]) -> List[List[float]]:
-#         return [self.model.encode(text).tolist() for text in texts]
-
-#     def embed_query(self, query: str) -> List[float]:
-#         return self.model.encode([query]).tolist()
 
 
 class DocumentLoader:
@@ -31,11 +22,7 @@ class DocumentLoader:
             self.embeddings = OpenAIEmbeddings(model=model, openai_api_key=os.getenv("OPENAI_API_KEY"))
         else:
             self.embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-            # model_path = '/Users/kiyas/Documents/Programming_Practice/portfolio/timeline-rag-summarizer/models/models--sentence-transformers--all-MiniLM-L6-v2'
-            # model = SentenceTransformer(model_path)
-            # self.embeddings = MyEmbeddings(model)
 
-        
         self.collection_name = collection_name
         self.persist_directory = persist_directory
         

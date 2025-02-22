@@ -1,6 +1,6 @@
 [[pages]]
 path = "pages/home.py"
-name = "Home"
+name = "Portfolio Intro"
 
 [[pages]]
 path = "pages/news-categorization.py"
