@@ -5,6 +5,17 @@ import json
 from dotenv import load_dotenv
 import requests
 import streamlit as st
+import re
+
+# helper function
+def insert_br_in_pattern(input_string):
+    # Define the regex pattern to match ". 2." or ". 3."
+    pattern = re.compile(r'\. (2|3)\.')
+    
+    # Replace the matched pattern with ". <br> 2." or ". <br> 3."
+    result = pattern.sub(r'. <br> \1.', input_string)
+    
+    return result
 
 class HuggingfaceTimelineGenerator:
     def __init__(self, model_name='mistralai/Mistral-7B-Instruct-v0.3'):
@@ -31,6 +42,12 @@ class HuggingfaceTimelineGenerator:
             try:
                 summarized_results = summarized_result.split('<br>')
                 summarized_result = '<br> <br> '.join([result.strip() for result in summarized_results])
+            except:
+                pass
+
+            try:
+                if '<br>' not in summarized_result:
+                    summarized_result = insert_br_in_pattern(summarized_result)
             except:
                 pass
             
