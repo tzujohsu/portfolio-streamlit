@@ -65,9 +65,7 @@ def timeline_css():
         transition: background-color 0.3s ease;
     }
     .timeline-item:nth-child(odd) {
-        left: -1%;
         text-align: left;
-        padding-right: 8px; /* Move text further to the left */
     }
     .timeline-item:nth-child(even) {
         left: 50%;
