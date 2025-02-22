@@ -10,10 +10,10 @@ import re
 # helper function
 def insert_br_in_pattern(input_string):
     # Define the regex pattern to match ". 2." or ". 3."
-    pattern = re.compile(r'\. (2|3)\.')
+    pattern = re.compile(r'(^|\n)\s*(?!1\.)(\d+)\.')
     
     # Replace the matched pattern with ". <br> 2." or ". <br> 3."
-    result = pattern.sub(r'. <br> <br> \1.', input_string)
+    result = pattern.sub(r'\1<br> <br> \2.', input_string)
     return result
 
 class HuggingfaceTimelineGenerator:
