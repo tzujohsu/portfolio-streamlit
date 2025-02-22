@@ -7,7 +7,7 @@ import json
 from utils.retriever import Retriever
 from utils.generator import HuggingfaceTimelineGenerator
 from utils.document_loader import DocumentLoader
-from components import timeline_css, generate_timeline_html
+from utils.components import timeline_css, generate_timeline_html
 from streamlit_timeline import timeline
 
 
