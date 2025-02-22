@@ -73,7 +73,7 @@ def timeline_css():
         left: 50%;
         text-align: left;
         padding-left: 25px; /* Move text further to the right */
-        width: 325px;
+        
     }
     .timeline-item::after {
         content: '';
