@@ -14,7 +14,6 @@ def insert_br_in_pattern(input_string):
     
     # Replace the matched pattern with ". <br> 2." or ". <br> 3."
     result = pattern.sub(r'. <br> <br> \1.', input_string)
-    print("done")
     return result
 
 class HuggingfaceTimelineGenerator:
