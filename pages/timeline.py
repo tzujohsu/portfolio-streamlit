@@ -121,4 +121,4 @@ with st_normal():
                 _, description = event['title'], event['description']
                 char_sum += len(description)
             
-            html(generate_timeline_html(timeline_data), height=320*char_sum//500+300)  # Increased height for better scrolling 
+            html(generate_timeline_html(timeline_data), height=320*char_sum//500+400)  # Increased height for better scrolling 
