@@ -11,7 +11,17 @@ from utils.document_loader import DocumentLoader
 from utils.components import timeline_css, generate_timeline_html
 from streamlit_timeline import timeline
 
-
+st.markdown("""
+<style>
+.highlight {
+    background-color: rgba(255, 213, 79, 0.3);  /* Reduced opacity of the yellow */
+    padding: 0 0.4rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    line-height: 1.5;
+}
+</style>
+""", unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center; color: black;'>ChronoEvents: Timeline Generator</h1>", unsafe_allow_html=True)
 
@@ -19,10 +29,10 @@ st.markdown(
     """
     <div style="width: 60%; margin: 0 auto; text-align: center; font-size: 1.1rem;">
         <p>
-        ChronoEvents is an innovative LLM-powered tool that transforms news transcripts into structured, temporal insights. <br> <br>
+        ChronoEvents is an innovative LLM/RAG-powered tool that transforms news transcripts into structured, temporal insights. <br> <br>
         Simply enter your topic or query in the input box below, and the tool will: <br>
-        1. Retrieve relevant information from the our RAG-Chroma database <br>
-        2. Generate a summarization of all the retrieved events with Mistral-7b <br>
+        1. Retrieve relevant information from the <span class='highlight'> LangChain Chroma </span> database <br>
+        2. Generate a summarization of all the retrieved events with <span class='highlight'> Mistral-7b </span> <br>
         3. Display a timeline visualization for each date and event description <br>
         </p>
     </div>
