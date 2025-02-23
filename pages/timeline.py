@@ -54,33 +54,30 @@ retriever = Retriever(st.session_state["db"])
 generator = HuggingfaceTimelineGenerator()
 
 st.markdown("""
-    <style>
-    .input-container {
-        width: 70%;
-        padding: 20px;
-        border-radius: 10px;
-        border: 1px solid #e0e0e0;
-        background-color: #ffffff;
-        margin-bottom: 20px;
-    }
-    .stButton button {
-        width: 100%; /* Make buttons take full width of their container */
-    }
-    </style>
-    """, unsafe_allow_html=True)
+            <style>
+            .input-container {
+                width: 70%;
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid #e0e0e0;
+                background-color: #ffffff;
+                margin-bottom: 20px;
+            }
+            </style>
+            """, unsafe_allow_html=True)
 
 # Input section
 with st.container():
-    with st.markdown('<div class="input-container">', unsafe_allow_html=True):
-        # Input area with placeholder text
-        user_input = st.text_area(
-            "Enter your topic or query:",
-            placeholder="Describe the topic or events you'd like to create a timeline for...",
-            height=70,
-            key="user_input"
-        )
+    # user_input = st.text_area("Enter your topic or query:", height=70, key="user_input")
+    st.markdown('<div class="input-container">', unsafe_allow_html=True)
+    # Input area with placeholder text
+    user_input = st.text_area(
+        "Enter your topic or query:",
+        placeholder="Describe the topic or events you'd like to create a timeline for...",
+        height=70,
+        key="user_input"
+            )
 
-    # Columns for buttons (shrunk in proportion to the input box)
     col1, col2, col3 = st.columns([4, 1, 1])
 
     with col1:
@@ -94,6 +91,8 @@ with st.container():
     with col3:
         # Generate timeline button
         generate_button = st.button("Generate", type="primary")
+    
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # Results section
 if generate_button and user_input:
