@@ -35,13 +35,13 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
-with st.markdown('<div style="width: 60%; margin: 0 auto; text-align: center; font-size: 1rem;">', unsafe_allow_html=True):
+with st.columns(3)[1]:
     st.caption('Data Source: CNN News Central (01/16/2025 - 02/20/2025)')
 
 st.markdown(
     """
     <div style="width: 60%; margin: 0 auto; text-align: center; font-size: 1rem;">
-        <br> <br>
+        <br>
         <p>
         Simply enter your topic in the input box below, and the tool will: <br>
         1. Retrieve relevant information from the <span class='highlight'> LangChain Chroma </span> database <br>
