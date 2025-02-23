@@ -110,6 +110,7 @@ def timeline_css():
         font-size: 1em;
         color: #555;
         margin-top: 10px;
+        margin-right: 20px;
         font-family: "Source Sans Pro", sans-serif;
     }
     </style>
