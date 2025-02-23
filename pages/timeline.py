@@ -36,7 +36,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown("<h6 style='text-align: center; color: black;'>Data Source: CNN News Central (01/16/2025 - 02/20/2025)</h6>", unsafe_allow_html=True)
+st.markdown("<h6 style='text-align: center; color: grey;'>Data Source: CNN News Central (01/16/2025 - 02/20/2025)</h6>", unsafe_allow_html=True)
 
 st.markdown(
     """
