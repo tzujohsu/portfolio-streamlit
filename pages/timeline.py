@@ -77,7 +77,7 @@ retriever = Retriever(st.session_state["db"])
 generator = HuggingfaceTimelineGenerator()
 
 def st_normal():
-    _, col, _ = st.columns([1, 2, 1])
+    _, col, _ = st.columns([1, 3, 1])
     return col
 
 # Input section
@@ -104,21 +104,21 @@ with st_normal():
         # Generate timeline button
         generate_button = st.button("Generate", type="primary")
 
-# Results section
-if generate_button and user_input:
-    with st.spinner("Generating timeline..."):
-        # Retrieve relevant documents
-        retrieved_df = retriever.get_similarity_search(user_input)
-        
-        # Generate timeline
-        summarized_list = generator.get_summary(retrieved_df)
-        timeline_data = generator.get_timeline_data(summarized_list, user_input)
-        # timeline_data_json = json.dumps(timeline_data)
-        # timeline(timeline_data_json, height=600)
+    # Results section
+    if generate_button and user_input:
+        with st.spinner("Generating timeline..."):
+            # Retrieve relevant documents
+            retrieved_df = retriever.get_similarity_search(user_input)
+            
+            # Generate timeline
+            summarized_list = generator.get_summary(retrieved_df)
+            timeline_data = generator.get_timeline_data(summarized_list, user_input)
+            # timeline_data_json = json.dumps(timeline_data)
+            # timeline(timeline_data_json, height=600)
 
-        char_sum = 0
-        for event in timeline_data:
-            _, description = event['title'], event['description']
-            char_sum += len(description)
-        
-        html(generate_timeline_html(timeline_data), height=320*char_sum//500+300)  # Increased height for better scrolling 
+            char_sum = 0
+            for event in timeline_data:
+                _, description = event['title'], event['description']
+                char_sum += len(description)
+            
+            html(generate_timeline_html(timeline_data), height=320*char_sum//500+300)  # Increased height for better scrolling 
