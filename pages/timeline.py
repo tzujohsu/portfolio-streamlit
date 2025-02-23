@@ -29,7 +29,8 @@ st.markdown(
     """
     <div style="width: 60%; margin: 0 auto; text-align: center; font-size: 1.1rem;">
         <p>
-        ChronoEvents is an innovative LLM/RAG-powered tool that transforms news transcripts into structured, temporal insights. <br> <br>
+        An innovative LLM/RAG-powered tool that transforms news transcripts into structured, temporal insights. <br>
+        Data Source: CNN News Central (01/16/2025 - 02/20/2025) <br> <br>
         Simply enter your topic or query in the input box below, and the tool will: <br>
         1. Retrieve relevant information from the <span class='highlight'> LangChain Chroma </span> database <br>
         2. Generate a summarization of all the retrieved events with <span class='highlight'> Mistral-7b </span> <br>
