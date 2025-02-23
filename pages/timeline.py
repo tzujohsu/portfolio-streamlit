@@ -53,23 +53,12 @@ def generate_random_sample():
 retriever = Retriever(st.session_state["db"])
 generator = HuggingfaceTimelineGenerator()
 
-st.markdown("""
-            <style>
-            .input-container {
-                width: 70%;
-                padding: 20px;
-                border-radius: 10px;
-                border: 1px solid #e0e0e0;
-                background-color: #ffffff;
-                margin-bottom: 20px;
-            }
-            </style>
-            """, unsafe_allow_html=True)
+def st_normal():
+    _, col, _ = st.columns([1, 2, 1])
+    return col
 
 # Input section
-with st.container():
-    # user_input = st.text_area("Enter your topic or query:", height=70, key="user_input")
-    st.markdown('<div class="input-container">', unsafe_allow_html=True)
+with st_normal():
     # Input area with placeholder text
     user_input = st.text_area(
         "Enter your topic or query:",
@@ -91,8 +80,6 @@ with st.container():
     with col3:
         # Generate timeline button
         generate_button = st.button("Generate", type="primary")
-    
-    st.markdown('</div>', unsafe_allow_html=True)
 
 # Results section
 if generate_button and user_input:
