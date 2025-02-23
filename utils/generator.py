@@ -53,6 +53,7 @@ class HuggingfaceTimelineGenerator:
 
     def get_timeline_data(self, summarized_list, user_prompt):
         # # A streamlit template, comment out for future use.
+        
         # timeline = self.timeline_template.copy()
         # timeline['title']['text']['text'] = f"User Input: {user_prompt}"
         # timeline['events'] = []

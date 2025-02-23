@@ -3,6 +3,7 @@ from streamlit.components.v1 import html
 import os
 import re
 import json
+import random
 
 from utils.retriever import Retriever
 from utils.generator import HuggingfaceTimelineGenerator
@@ -34,7 +35,8 @@ if "db" not in st.session_state:
     docloader = DocumentLoader()
     # docloader.load_documents_into_database()
     st.session_state["db"] = docloader.vector_store
-    print("Database loaded successfully")
+    # print("Database loaded successfully")
+    
 if "user_input" not in st.session_state:
     st.session_state.user_input = ""
 
@@ -42,17 +44,52 @@ if "user_input" not in st.session_state:
 def clear_text():
     st.session_state.user_input = ""
 
+# Helper function to generate display sample
+sample_inputs = ['LA wildfire', 'chatgpt', 'plane crashes', 'super bowl', 'Artificial Intelligence']
+def generate_random_sample():
+    random_sample = random.choice(sample_inputs)
+    st.session_state.user_input = random_sample
+
 retriever = Retriever(st.session_state["db"])
 generator = HuggingfaceTimelineGenerator()
 
+st.markdown("""
+            <style>
+            .input-container {
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid #e0e0e0;
+                background-color: #ffffff;
+                margin-bottom: 20px;
+            }
+            </style>
+            """, unsafe_allow_html=True)
+
 # Input section
 with st.container():
-    user_input = st.text_area("Enter your topic or query:", height=70, key="user_input")
-    col1, col2 = st.columns([1,9])
+    # user_input = st.text_area("Enter your topic or query:", height=70, key="user_input")
+    with st.markdown('<div class="input-container">', unsafe_allow_html=True):
+    # Input area with placeholder text
+        user_input = st.text_area(
+            "Enter your topic or query:",
+            placeholder="Describe the topic or events you'd like to create a timeline for...",
+            height=70,
+            key="user_input"
+                )
+
+    col1, col2, col3 = st.columns([4, 1, 1])
+
     with col1:
-        st.button("Clear Input", on_click=clear_text, type="secondary")
+        # Generate Random Sample button
+        st.button("Random topics", on_click=generate_random_sample, type="secondary")
+
     with col2:
-        generate_button = st.button("Generate Timeline", type="primary")
+        # Clear Input button
+        st.button("Clear Input", on_click=clear_text, type="secondary")
+
+    with col3:
+        # Generate timeline button
+        generate_button = st.button("Generate", type="primary")
 
 # Results section
 if generate_button and user_input:
@@ -70,5 +107,5 @@ if generate_button and user_input:
         for event in timeline_data:
             _, description = event['title'], event['description']
             char_sum += len(description)
-        print(char_sum, 300*char_sum//500+300)
+        
         html(generate_timeline_html(timeline_data), height=320*char_sum//500+300)  # Increased height for better scrolling 
