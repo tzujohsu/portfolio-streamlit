@@ -28,9 +28,9 @@ st.markdown("<h1 style='text-align: center; color: black;'>ChronoEvents: Timelin
 st.markdown(
     """
     <div style="width: 60%; margin: 0 auto; text-align: center; font-size: 1.1rem;">
-        <p>
-        An innovative LLM/RAG-powered tool that transforms news transcripts into structured, temporal insights. <br>
-        </p>
+        <h6>
+        An innovative LLM/RAG-powered tool that transforms news transcripts into structured, temporal insights.
+        </h6>
     </div>
     """, 
     unsafe_allow_html=True
