@@ -42,3 +42,7 @@ st.markdown("---")
 # Projects Section
 project_section = create_project_section(projects)
 st.markdown(project_section, unsafe_allow_html=True)
+
+# st.markdown("---")
+
+# # Skills Section

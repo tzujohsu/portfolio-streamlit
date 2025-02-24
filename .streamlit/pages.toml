@@ -4,7 +4,7 @@ name = "Portfolio Intro"
 
 [[pages]]
 path = "pages/news-categorization.py"
-name = "News Categorization"
+name = "Multi-label Categorization"
 icon = ":newspaper:"
 
 [[pages]]
@@ -15,5 +15,5 @@ icon = ":chart_with_upwards_trend:"
 [[pages]]
 path = "pages/timeline.py"
 name = "Timeline Generator"
-icon = ":speech_balloon:"
+icon = ":hourglass_flowing_sand:"
 
