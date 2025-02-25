@@ -19,6 +19,6 @@ projects = [
         "task": "Retrieval Augmented Generation",
         "model": "LangChain Chroma, Mistral-7B",
         "href": "timeline",
-        "description": "Generates an interactive timeline based on your input topic with summarized descriptions with Chroma RAG and mistral-7b."
+        "description": "Generates an interactive timeline based on your input topic with summarized descriptions using LangChain Chroma and Mistral-7b."
     }
 ]

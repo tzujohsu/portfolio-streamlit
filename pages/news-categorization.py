@@ -191,6 +191,15 @@ with st_normal():
     </div>
     """, unsafe_allow_html=True)
 
+    # Model Development Section
+    st.markdown("""
+    <div class='section'>
+
+    #### 🔬 Model Development
+    This NLP model applies <span class='highlight'>tf-idf vectorizer</span> and <span class='highlight'>gradient-boosting framework</span> based classifier. <br> It has been chosen after experimentation, considering the model size, inference speed and performance.
+    </div>
+    """, unsafe_allow_html=True)
+
     # Creating an expandable section for categories
     ft_importance = pd.read_csv('data/model_feature_importance.csv')
     with st.expander("View all categories and their top features"):
@@ -215,15 +224,6 @@ with st_normal():
         # * weather
         # """
             #)
-
-    # Model Development Section
-    st.markdown("""
-    <div class='section'>
-
-    #### 🔬 Model Development
-    This NLP model applies <span class='highlight'>tf-idf vectorizer</span> and <span class='highlight'>gradient-boosting framework</span> based classifier. <br> It has been chosen after experimentation, considering the model size, inference speed and performance.
-    </div>
-    """, unsafe_allow_html=True)
 
     # System Design Section
     st.markdown("""
