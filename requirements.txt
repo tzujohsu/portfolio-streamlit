@@ -10,3 +10,4 @@ langchain_text_splitters
 langchain_community
 streamlit_timeline
 sentence-transformers
+langchain_huggingface
