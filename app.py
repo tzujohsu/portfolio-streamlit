@@ -3,6 +3,9 @@ __import__('pysqlite3')
 import pysqlite3
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
+import torch
+torch.classes.__path__ = []
+
 import streamlit as st
 from st_pages import add_page_title, get_nav_from_toml
 st.set_page_config(page_title="Jocelyn Hsu - Portfolio", layout="wide")

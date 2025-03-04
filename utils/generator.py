@@ -31,7 +31,7 @@ class HuggingfaceTimelineGenerator:
         
         summarized_list = []
         for i, v in content_df.iterrows():
-            date, context = v[0], v[1]
+            date, context = v.iloc[0], v.iloc[1]
             
             payload = {
                 'inputs': self.prompt + context + ' [Result] '
@@ -46,7 +46,8 @@ class HuggingfaceTimelineGenerator:
 
             if '<br>' not in summarized_result:
                 summarized_result = insert_br_in_pattern(summarized_result)
-
+            date = str(date)
+            date = date[:4]+'-'+date[4:4+2]+'-'+date[6:]
             summarized_list.append({'date': datetime.strptime(date, '%Y-%m-%d'), 'content': summarized_result})
 
         return summarized_list

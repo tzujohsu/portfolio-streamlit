@@ -14,7 +14,7 @@ from streamlit_timeline import timeline
 st.markdown("""
 <style>
 .highlight {
-    background-color: rgba(255, 213, 79, 0.3);  /* Reduced opacity of the yellow */
+    background-color: rgba(0,80,142,0.15);
     padding: 0 0.4rem;
     border-radius: 0.25rem;
     font-weight: bold;
@@ -56,9 +56,11 @@ st.markdown(
 # Initialize necessary components
 if "db" not in st.session_state:
     docloader = DocumentLoader()
-    # docloader.load_documents_into_database()
+    # paths = os.listdir('data/data-news')
+    # documents = docloader.load_documents_from_path(paths)
+    # docloader.load_documents_into_database(documents)
     st.session_state["db"] = docloader.vector_store
-    # print("Database loaded successfully")
+    print("Database loaded successfully")
     
 if "user_input" not in st.session_state:
     st.session_state.user_input = ""
