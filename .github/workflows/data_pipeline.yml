@@ -39,6 +39,6 @@ jobs:
       - name: Commit and push if changes
         if: env.changes == 'true'
         run: |
-          git commit -m "updated database"
+          git commit -m "updated database [skip ci]"
           git push
 
