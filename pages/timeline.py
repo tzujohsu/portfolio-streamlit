@@ -11,6 +11,17 @@ from utils.document_loader import DocumentLoader
 from utils.components import timeline_css, generate_timeline_html
 from streamlit_timeline import timeline
 
+# Initialize necessary components
+if "db" not in st.session_state:
+    docloader = DocumentLoader()
+    # paths = os.listdir('data/data-news')
+    # documents = docloader.load_documents_from_path(paths)
+    # docloader.load_documents_into_database(documents)
+    st.session_state["db"] = docloader.vector_store
+    print("Database loaded successfully")
+    min_date, max_date = docloader.get_database_dates()
+
+
 st.markdown("""
 <style>
 .highlight {
@@ -36,7 +47,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown("<h6 style='text-align: center; color: grey;'>Data Source: CNN News Central (01/16/2025 - 02/20/2025)</h6>", unsafe_allow_html=True)
+st.markdown(f"<h6 style='text-align: center; color: grey;'>Data Source: CNN News Central ({min_date} - {max_date})</h6>", unsafe_allow_html=True)
 
 st.markdown(
     """
@@ -52,15 +63,6 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
-
-# Initialize necessary components
-if "db" not in st.session_state:
-    docloader = DocumentLoader()
-    # paths = os.listdir('data/data-news')
-    # documents = docloader.load_documents_from_path(paths)
-    # docloader.load_documents_into_database(documents)
-    st.session_state["db"] = docloader.vector_store
-    print("Database loaded successfully")
     
 if "user_input" not in st.session_state:
     st.session_state.user_input = ""

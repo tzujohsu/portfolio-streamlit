@@ -1,8 +1,3 @@
-# import sys
-# __import__('pysqlite3')
-# import pysqlite3
-# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
 import os
 from langchain_openai import OpenAIEmbeddings
 from typing import List
@@ -193,8 +188,9 @@ class DocumentLoader:
         try:
             if dates:
                 print('\tdate range:', min(dates), ' - ', max(dates))
-            else:
-                pass
+                min_date = datetime.strptime(str(min(dates)), "%Y%m%d").strftime("%m/%d/%Y")
+                max_date = datetime.strptime(str(max(dates)), "%Y%m%d").strftime("%m/%d/%Y")
+                return min_date, max_date
         except:
             pass
 # if __name__ == "__main__":
