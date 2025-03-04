@@ -15,7 +15,7 @@ print('\t# docs in the current database: ', len(docloader.vector_store.get()['do
 
 # # step 2: 
 documents = docloader.load_documents_from_scraping(start_date=today_date , latest=True)
-# documents = docloader.load_documents_from_scraping(start_date=(datetime.now() - timedelta(days=4)), end_date= (datetime.now() - timedelta(days=60)), latest=False)
+# documents = docloader.load_documents_from_scraping(start_date=(datetime.now() - timedelta(days=4)), end_date= (datetime.now() - timedelta(days=35)), latest=False)
 print('step 2: scrape the latest news done')
 
 # # step 3:
@@ -23,7 +23,7 @@ docloader.load_documents_into_database(documents)
 print('step 3: load the documents into db done')
 print('\t# docs in the current database: ', len(docloader.vector_store.get()['documents']))
 
-# step 4
-docloader.remove_documents(cutoff_threshold=60)
-print('step 4: remove the oldest transcripts done')
-print('\t# docs in the current database: ', len(docloader.vector_store.get()['documents']))
+# # step 4
+# docloader.remove_documents(cutoff_threshold=60)
+# print('step 4: remove the oldest transcripts done')
+# print('\t# docs in the current database: ', len(docloader.vector_store.get()['documents']))
