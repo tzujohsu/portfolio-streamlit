@@ -19,7 +19,7 @@ if "db" not in st.session_state:
     # docloader.load_documents_into_database(documents)
     st.session_state["db"] = docloader.vector_store
     print("Database loaded successfully")
-    min_date, max_date = docloader.get_database_dates()
+    
 
 
 st.markdown("""
@@ -46,7 +46,7 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
-
+min_date, max_date = docloader.get_database_dates()
 st.markdown(f"<h6 style='text-align: center; color: grey;'>Data Source: CNN News Central ({min_date} - {max_date})</h6>", unsafe_allow_html=True)
 
 st.markdown(
