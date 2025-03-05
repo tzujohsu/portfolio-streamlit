@@ -1,3 +1,7 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import streamlit as st
 from streamlit.components.v1 import html
 import os
@@ -11,10 +15,6 @@ from utils.document_loader import DocumentLoader
 from utils.components import timeline_css, generate_timeline_html
 from streamlit_timeline import timeline
 
-import sys
-__import__('pysqlite3')
-import pysqlite3
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # Initialize necessary components
 if "db" not in st.session_state:
