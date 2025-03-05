@@ -52,7 +52,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-min_date, max_date = docloader.get_database_dates()
+min_date, max_date = st.session_state["db"].get_database_dates()
 st.markdown(f"<h6 style='text-align: center; color: grey;'>Data Source: CNN News Central ({min_date} - {max_date})</h6>", unsafe_allow_html=True)
 
 st.markdown(
