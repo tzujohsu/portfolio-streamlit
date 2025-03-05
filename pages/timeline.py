@@ -11,6 +11,11 @@ from utils.document_loader import DocumentLoader
 from utils.components import timeline_css, generate_timeline_html
 from streamlit_timeline import timeline
 
+import sys
+__import__('pysqlite3')
+import pysqlite3
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 # Initialize necessary components
 if "db" not in st.session_state:
     docloader = DocumentLoader()
@@ -46,6 +51,7 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
+
 min_date, max_date = docloader.get_database_dates()
 st.markdown(f"<h6 style='text-align: center; color: grey;'>Data Source: CNN News Central ({min_date} - {max_date})</h6>", unsafe_allow_html=True)
 
