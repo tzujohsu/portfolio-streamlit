@@ -1,5 +1,6 @@
 def create_project_card(project):
     return f"""
+    
     <div class='project-card'>
         <div class='support-badge'>SUPPORTED</div>
         <div class='favorite-icon'>⭐</div>
@@ -16,8 +17,8 @@ def create_project_card(project):
         <p class='project-description'>{project['description']}</p>
         <br>
         <a class="demo-button" color=white href="https://jocelynhsu.streamlit.app/{project['href']}"> Go to DEMO </a>
-    
     </div>
+    
     """
 
 def create_project_section(projects):

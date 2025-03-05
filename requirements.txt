@@ -11,3 +11,4 @@ langchain_community
 streamlit_timeline
 sentence-transformers
 langchain_huggingface
+streamlit-lottie

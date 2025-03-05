@@ -1,11 +1,11 @@
 # projects.py
 projects = [
     {
-        "title": "📰 News Categorization Tool",
+        "title": "📰 Multi-Label Categorization Tool",
         "task": "NLP: Text Classification",
         "model": "LightGBM",
         "href": "news-categorization",
-        "description": "Categorizes news articles into predefined 17 topics. Supporting custom text input and a random article from today's CNN Lite."
+        "description": "Categorizes text (e.g., news articles) into predefined 17 topics. Supporting custom text input and a random article from today's CNN Lite."
     },
     {
         "title": "⏳ ChronoEvents: Timeline Generator",
@@ -16,9 +16,9 @@ projects = [
     },
     {
         "title": "📈 Sales Analytics Dashboard",
-        "task": "EDA & Data Visualization",
+        "task": "EDA & Visualization with Tableau",
         "model": "NA",
         "href": "sales-dashboard",
-        "description": "Designed to provide a clear, structured view of sales performance and customer behavior. Supporting various filtering options."
+        "description": "Designed to provide a clear, structured view of sales performance and customer behavior. Supporting year, regional and category filtering options to drive targeted business initiatives."
     }
 ]

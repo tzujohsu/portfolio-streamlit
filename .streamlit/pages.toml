@@ -1,6 +1,6 @@
 [[pages]]
 path = "pages/home.py"
-name = "Portfolio Intro"
+name = "Jocelyn's Portfolio Intro"
 
 [[pages]]
 path = "pages/news-categorization.py"
@@ -14,6 +14,6 @@ icon = ":chart_with_upwards_trend:"
 
 [[pages]]
 path = "pages/timeline.py"
-name = "Timeline Generator"
+name = "ChronoEvents: Timeline Generator"
 icon = ":hourglass_flowing_sand:"
 

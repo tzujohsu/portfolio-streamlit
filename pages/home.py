@@ -2,40 +2,66 @@ import streamlit as st
 from css import css
 from projects import *
 from utils.components import *
+from streamlit_lottie import st_lottie
+
 
 # Apply CSS
 st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align: center; color: black;'>Tzu-Jo Hsu's Portfolio</h1>", unsafe_allow_html=True)
-st.markdown(
-    """
-    <br>
-    <div style="text-align: center;">
-        <a href="https://www.linkedin.com/in/jocelyn-hsu-78518828b/" target="_blank">
-            <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge" />
-        </a>
-        <a href="mailto:jocelynhsu.tjh@gmail.com" target="_blank">
-            <img src="https://img.shields.io/badge/Email-0078D4?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Badge" />
-        </a>
-        <a href="https://github.com/tzujohsu" target="_blank">
-            <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge" />
-        </a>
-    </div>
-    <br>
-    """, 
-    unsafe_allow_html=True
-)
-st.markdown(
-    """
-    <div style="width: 75%; margin: 0 auto; text-align: center; font-size: 1.2rem;">
-        <p>Hi, I'm <strong>Tzu-Jo Hsu</strong>, I also go by Jocelyn.
-        I'm passionate about data science and analytics.<br>
-        I build ML solutions and optimize models for real-world applications.<br>
-        Explore my portfolio to see some of my projects!</p>
-    </div>
-    """, 
-    unsafe_allow_html=True
-)
+col1, col2 = st.columns([1, 1])
+with col1:
+    st.markdown(
+        """
+        <style>
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            display: inline-block;
+            position: relative;
+            animation: typing 3.5s steps(40, end);
+            font-size: 2.5rem !important;
+        }
+
+        .typing-effect::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: orange;
+            animation: blink .75s step-end infinite, 
+                    hide-cursor 0s 2.4s forwards;
+        }
+
+        @keyframes hide-cursor {
+            to { opacity: 0; }
+        }
+        </style>
+
+        <div style="text-align: left;">
+            <h1 class="typing-effect"><strong>Hi, I'm Tzu-Jo Hsu</strong></h1>
+            <h3><strong>also known as Jocelyn.</h3>
+            <p>I'm a Data Scientist passionate about leveraging analytics and machine learning to solve cool challenges.</p>
+            <p>My interests span data analysis, predictive modeling, and scalable systems.</p>
+            <p>Explore my portfolio to see projects where I drive impact through AI and data!</p>
+        </div>
+        """, 
+        unsafe_allow_html=True
+    )
+with col2:
+    lottie_url = 'https://lottie.host/61a7a446-fd25-4d9d-942e-c6488aaf4e0c/ql1mK101vy.json'
+    st_lottie(lottie_url, key="user", height=300, speed=1)
 
 st.markdown("---")
 

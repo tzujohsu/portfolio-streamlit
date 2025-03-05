@@ -29,7 +29,7 @@ css = """
     position: absolute;
     top: -12px;
     left: 24px;
-    background-color: #7c3aed;
+    background-color: #6A9C89;
     color: white;
     padding: 4px 16px;
     border-radius: 4px;
@@ -62,7 +62,7 @@ css = """
     min-width: 60px;
 }
 .metadata-value {
-    color: #3b82f6;
+    color: #769bc2;
     flex: 1;
 }
 .project-description {
@@ -90,7 +90,7 @@ css = """
     justify-content: center;  /* Centers the button */
     align-items: center;  /* Vertically centers the content */
     padding: 0.4rem 1rem;  /* Narrower height */
-    background-color: #98AFC7;  /* Greyish blue color */
+    background-color: #A3D1C6;  /* Greyish blue color */
     color: white;
     border: none;
     border-radius: 0.375rem;
@@ -102,35 +102,13 @@ css = """
     transition: all 0.2s ease;
     box-shadow: 0 1px 2px rgba(90, 103, 114, 0.1);
     width: 100%;  /* Ensures button spans the full width */
+    margin-top: auto; /* Pushes button to bottom */
 }
 
 .demo-button:hover {
     background-color: #47525b;  /* Darker greyish blue on hover */
     box-shadow: 0 2px 4px rgba(90, 103, 114, 0.2);
     transform: translateY(-1px);
-}
-
-.demo-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.4rem 1rem;
-    background-color: #98AFC7;
-    color: white !important;
-    border: none;
-    border-radius: 0.375rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    text-align: center;
-    text-decoration: none !important;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 1px 2px rgba(90, 103, 114, 0.1);
-    width: 100%;
-}
-
-.demo-button:hover {
-    background-color: #7A92B4 !important;
 }
 
 .demo-button:link, .demo-button:visited {
