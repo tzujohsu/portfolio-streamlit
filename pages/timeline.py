@@ -22,8 +22,9 @@ if "db" not in st.session_state:
     # paths = os.listdir('data/data-news')
     # documents = docloader.load_documents_from_path(paths)
     # docloader.load_documents_into_database(documents)
-    st.session_state["db"] = docloader.vector_store
+    st.session_state["docloader"] = docloader
     print("Database loaded successfully")
+    
     
 
 
@@ -52,7 +53,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-min_date, max_date = st.session_state["db"].get_database_dates()
+min_date, max_date = st.session_state["docloader"].get_database_dates()
 st.markdown(f"<h6 style='text-align: center; color: grey;'>Data Source: CNN News Central ({min_date} - {max_date})</h6>", unsafe_allow_html=True)
 
 st.markdown(
@@ -83,7 +84,7 @@ def generate_random_sample():
     random_sample = random.choice(sample_inputs)
     st.session_state.user_input = random_sample
 
-retriever = Retriever(st.session_state["db"])
+retriever = Retriever(st.session_state["docloader"].vector_store)
 generator = HuggingfaceTimelineGenerator()
 
 def st_normal():
