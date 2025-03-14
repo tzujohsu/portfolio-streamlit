@@ -19,8 +19,11 @@ documents = docloader.load_documents_from_scraping(start_date=today_date , lates
 print('step 2: scrape the latest news done')
 
 # step 3:
-docloader.load_documents_into_database(documents)
-print('step 3: load the documents into db done')
+ret = docloader.load_documents_into_database(documents)
+if ret != -1:
+    print('step 3: load the latest documents into db done')
+else:
+    print('step 3: no new documents to load')
 print('\t# docs in the current database: ', len(docloader.vector_store.get()['documents']))
 
 # step 4

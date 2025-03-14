@@ -161,7 +161,7 @@ class DocumentLoader:
             uuids = [str(uuid4()) for _ in range(len(documents))]
             self.vector_store.add_documents(documents=documents, ids=uuids)
         else:
-            raise Exception("No documents were loaded, please check the passed-in documents")
+            return -1
 
         return self.vector_store
 

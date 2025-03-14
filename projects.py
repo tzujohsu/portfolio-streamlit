@@ -4,7 +4,7 @@ projects = [
         "title": "📰 Multi-Label Categorization Tool",
         "task": "NLP: Text Classification",
         "model": "LightGBM",
-        "href": "news-categorization",
+        "href": "mlb-categorization",
         "description": "Categorizes text (e.g., news articles) into predefined 17 topics. Supporting custom text input and a random article from today's CNN Lite."
     },
     {

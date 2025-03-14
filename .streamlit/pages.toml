@@ -3,7 +3,7 @@ path = "pages/home.py"
 name = "Jocelyn's Portfolio Intro"
 
 [[pages]]
-path = "pages/news-categorization.py"
+path = "pages/mlb-categorization.py"
 name = "Multi-label Categorization"
 icon = ":newspaper:"
 
