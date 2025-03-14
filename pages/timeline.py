@@ -54,7 +54,7 @@ st.markdown(
 )
 
 min_date, max_date = st.session_state["docloader"].get_database_dates()
-st.markdown(f"<h6 style='text-align: center; color: grey;'>Data Source: CNN News Central ({min_date} - {max_date})</h6>", unsafe_allow_html=True)
+st.markdown(f"<h6 style='text-align: center; color: grey;'>Data Source: latest CNN News Central transcripts ({min_date} - {max_date}, updated everyday)</h6>", unsafe_allow_html=True)
 
 st.markdown(
     """
@@ -132,4 +132,58 @@ with st_normal():
                 _, description = event['title'], event['description']
                 char_sum += len(description)
             
-            html(generate_timeline_html(timeline_data), height=320*char_sum//500+400)  # Increased height for better scrolling 
+            html(generate_timeline_html(timeline_data), height=345*char_sum//500+400)  # Increased height for better scrolling 
+
+    st.markdown("---")
+
+    def st_normal():
+        _, col, _ = st.columns([1, 6, 1])
+        return col
+
+    with st_normal():
+        # Title
+        st.markdown("""
+            <h2 style='text-align: center; margin-bottom: 0.5rem;'>Project Overview</h2>
+            """, unsafe_allow_html=True)
+
+        # Motivation Section
+        st.markdown("""
+        <div class='section'>
+
+        #### 📊 Motivation
+        When navigating websites or documents with numerous timestamps, quickly understanding their chronological logic can be challenging. Current chatbot interactions, such as ChatGPT, are primarily conversational, making it difficult to extract and summarize structured information from large volumes of text data.
+        In this project, I aim to provide meaningful insights by analyzing how topics, sentiments, and trends evolve over time in content like news transcripts and podcasts. I plan to leverage time-stamped data to build a structured knowledge base.
+        By applying advanced NLP and visualization techniques, I seek to help users explore trends, events, and insights in a more organized and actionable way.
+        </div>
+        """, unsafe_allow_html=True)
+
+        # Dataset Section
+        st.markdown(f"""
+        <div class='section'>
+
+        #### 📚 Data Retrieval and Storage
+        I leveraged **GitHub Actions** to scrape the CNN News Central transcripts **everyday**. The data is vectorized with **all-MiniLM-L6-v2** and stored in Chroma database. 
+        Given the limitations of the free tier, I keep the time range of the transcripts within approximately a month.
+        The current date range is within {min_date} - {max_date}.
+        </div>
+        """, unsafe_allow_html=True)
+
+        # System Design Section
+        st.markdown("""
+        <div class='section'>
+
+        #### ⚙️ System Design
+        <div class='tech-item'>
+        <strong>Large Language Models:</strong> LangChain Chroma, Recursive Character Text Splitter, Huggingface Embeddings, Huggingface Mistral-7b
+        </div>
+
+        <div class='tech-item'>
+        <strong>Frontend:</strong> Streamlit, HTML, CSS
+        </div>
+
+        <div class='tech-item'>
+        <strong>Data retrieval:</strong> GitHub Actions, BeautifulSoup
+        </div>
+
+        </div>
+        """, unsafe_allow_html=True)
