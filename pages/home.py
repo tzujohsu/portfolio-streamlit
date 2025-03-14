@@ -74,34 +74,36 @@ st.markdown("---")
 # # Skills Section
 
 # st.subheader("🛠️ Technical Skills")
+_, col1, col2, _ = st.columns([1, 6, 1])
 
-st.markdown(f"<div class='title'><h3>🛠️ HIGHLIGHTED SKILLS</h3></div>",unsafe_allow_html=True)
-st.markdown("""
-<style>
-.highlight {
-    background-color: rgba(16, 109, 156, 0.2);  
-    padding: 0 0.4rem;
-    border-radius: 0.25rem;
-    font-weight: bold;
-    line-height: 1.5;
-}
-""",
- unsafe_allow_html=True
- )
+with col1:
+    st.markdown(f"<div class='title'><h3>🛠️ HIGHLIGHTED SKILLS</h3></div>",unsafe_allow_html=True)
+    st.markdown("""
+    <style>
+    .highlight {
+        background-color: rgba(16, 109, 156, 0.2);  
+        padding: 0 0.4rem;
+        border-radius: 0.25rem;
+        font-weight: bold;
+        line-height: 1.5;
+    }
+    """,
+    unsafe_allow_html=True
+    )
 
-# Skills Dictionary
-skills = {
-    "📊 Data Science & Analytics": ["Predictive Modeling", "Statistical Analysis", 'LLM', 'NLP'],
-    "⚙️ Programming & Engineering": ["Python", "R", "SQL", "APIs", "ETL"],
-    "☁️ Cloud & DevOps": ["AWS (SageMaker, EC2, S3)", "Docker", "FastAPI", "MLFlow", "SQL Server", "MySQL", "Linux"],
-    "📈 Data Visualization & BI": ["Tableau", "Looker Studio", "Matplotlib", "Seaborn"]
-}
+    # Skills Dictionary
+    skills = {
+        "📊 Data Science & Analytics": ["Predictive Modeling", "Statistical Analysis", 'LLM', 'NLP'],
+        "⚙️ Programming & Engineering": ["Python", "R", "SQL", "APIs", "ETL"],
+        "☁️ Cloud & DevOps": ["AWS (SageMaker, EC2, S3)", "Docker", "FastAPI", "MLFlow", "SQL Server", "MySQL", "Linux"],
+        "📈 Data Visualization & BI": ["Tableau", "Looker Studio", "Matplotlib", "Seaborn"]
+    }
 
-# Display Skills with Highlighting
-for category, tools in skills.items():
-    st.markdown(f"**{category}**")
-    highlighted_skills = "  ".join([f"<span class='highlight'>{skill}</span>" for skill in tools])
-    st.markdown(f"{highlighted_skills}", unsafe_allow_html=True)
+    # Display Skills with Highlighting
+    for category, tools in skills.items():
+        st.markdown(f"**{category}**")
+        highlighted_skills = "  ".join([f"<span class='highlight'>{skill}</span>" for skill in tools])
+        st.markdown(f"{highlighted_skills}", unsafe_allow_html=True)
 
 # Optional: Add a subtle horizontal line for separation
 st.markdown("---")
