@@ -74,7 +74,7 @@ st.markdown("---")
 # # Skills Section
 
 # st.subheader("🛠️ Technical Skills")
-_, col1, col2, _ = st.columns([1, 6, 1])
+_, col1, _ = st.columns([1, 6, 1])
 
 with col1:
     st.markdown(f"<div class='title'><h3>🛠️ HIGHLIGHTED SKILLS</h3></div>",unsafe_allow_html=True)
