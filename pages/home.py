@@ -13,7 +13,7 @@ import base64
 st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
 # Intro
-_, col1, col2, _ = st.columns([1, 4, 3, 1])
+_, col1, col2, _ = st.columns([2, 4, 4, 1])
 with col1:
     st.markdown(
         """
@@ -66,6 +66,7 @@ with col1:
     )
 
 # Profile Picture
+
 with col2:
     # lottie_url = 'https://lottie.host/61a7a446-fd25-4d9d-942e-c6488aaf4e0c/ql1mK101vy.json'
     # st_lottie(lottie_url, key="user", height=300, speed=1)
@@ -73,8 +74,15 @@ with col2:
     contents = file_.read()
     data_url = base64.b64encode(contents).decode("utf-8")
     file_.close()
-    st.markdown(f'<br><br><img src="data:image/png;base64,{data_url}" alt="Jocelyn" style="max-width: 40%; height: auto;">', unsafe_allow_html=True)
-
+    st.markdown(f'''
+        <br> 
+        <div style="display: flex; justify-content: center;">
+            <img src="data:image/png;base64,{data_url}" 
+                 alt="Jocelyn" 
+                 style="max-width: 260px; width: 100%; height: auto;">
+        </div>
+    ''', unsafe_allow_html=True)
+    
 st.markdown("---")
 
 # Projects Section
@@ -129,11 +137,10 @@ def experience_section():
 
     st.markdown('</div>', unsafe_allow_html=True) 
 
-_, col1, _ = st.columns([1, 7, 1])
+_, col1, _ = st.columns([2, 6, 2])
 with col1:
     experience_section()
-
-st.markdown("---")
+    st.markdown("---")
 
 # Education Section
 
@@ -173,16 +180,14 @@ def education_section():
     
 
     st.markdown('</div>', unsafe_allow_html=True)
-_, col1, _ = st.columns([1, 7, 1])
+_, col1, _ = st.columns([2, 6, 2])
 with col1:
     education_section()
-
-st.markdown("---")
+    st.markdown("---")
 
 # Skills Section
 
-_, col1, _ = st.columns([1, 7, 1])
-
+_, col1, _ = st.columns([2, 6, 2])
 with col1:
     st.markdown(f"<div class='title'><h3>🛠️ HIGHLIGHTED SKILLS</h3></div>",unsafe_allow_html=True)
     st.markdown("""
@@ -211,3 +216,46 @@ with col1:
         st.markdown(f"**{category}**")
         highlighted_skills = "  ".join([f"<span class='highlight'>{skill}</span>" for skill in tools])
         st.markdown(f"{highlighted_skills}", unsafe_allow_html=True)
+
+st.markdown("---")
+
+def display_contact():
+    
+    # Display the contact badges at the end
+    contact_info = """
+    <style>
+        .contact-badges {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .contact-badges a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .contact-badges img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            transition: transform 0.2s ease-in-out;
+        }
+        .contact-badges img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+    <h5 class="section-title">٩(>w<)و Contact Me</h5>
+    <div class="contact-badges">
+        <a href="mailto:jocelynhsu.tjh@gmail.com" target="_blank">
+            <img src="https://img.icons8.com/color/48/apple-mail.png" alt="Email">
+        </a>
+        <a href="https://www.linkedin.com/in/jocelyn-hsu-78518828b/" target="_blank">
+            <img src="https://img.icons8.com/fluency/48/000000/linkedin.png" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/tzujohsu" target="_blank">
+            <img src="https://img.icons8.com/fluency/48/000000/github.png" alt="GitHub">
+        </a>
+    </div>
+    """
+    st.markdown(contact_info, unsafe_allow_html=True)
+display_contact()
