@@ -13,7 +13,7 @@ import base64
 st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
 # Intro
-col1, col2 = st.columns([1, 1])
+_, col1, col2, _ = st.columns([1, 4, 3, 1])
 with col1:
     st.markdown(
         """
@@ -73,7 +73,7 @@ with col2:
     contents = file_.read()
     data_url = base64.b64encode(contents).decode("utf-8")
     file_.close()
-    st.markdown(f'<br><br><img src="data:image/png;base64,{data_url}" alt="Jocelyn" style="max-width: 60%;">', unsafe_allow_html=True)
+    st.markdown(f'<br><br><img src="data:image/png;base64,{data_url}" alt="Jocelyn" style="max-width: 40%; height: auto;">', unsafe_allow_html=True)
 
 st.markdown("---")
 
