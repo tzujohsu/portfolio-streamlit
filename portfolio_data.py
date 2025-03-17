@@ -94,7 +94,7 @@ education = [
             "university": "National Yang Ming Chiao Tung University",
             "degree": "BBA in Finance (Arete Honors Program)",
             "duration": "Sep 2019 - Jun 2023 · Hsinchu, Taiwan",
-            "logo":"img/nycu.png",
+            "logo":"img/NYCU.png",
             "logo_initial": "NYCU",
             "color": "#0033A0"  # University blue
         }

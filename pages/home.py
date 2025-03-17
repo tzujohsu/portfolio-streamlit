@@ -73,7 +73,7 @@ with col2:
     contents = file_.read()
     data_url = base64.b64encode(contents).decode("utf-8")
     file_.close()
-    st.markdown(f'<br><br><img src="data:image/png;base64,{data_url}" alt="Jocelyn" style="max-width: 90%;">', unsafe_allow_html=True)
+    st.markdown(f'<br><br><img src="data:image/png;base64,{data_url}" alt="Jocelyn" style="max-width: 60%;">', unsafe_allow_html=True)
 
 st.markdown("---")
 
@@ -128,7 +128,10 @@ def experience_section():
         st.markdown(generate_experience_card(exp), unsafe_allow_html=True)
 
     st.markdown('</div>', unsafe_allow_html=True) 
-experience_section()
+
+_, col1, _ = st.columns([1, 7, 1])
+with col1:
+    experience_section()
 
 st.markdown("---")
 
@@ -170,7 +173,9 @@ def education_section():
     
 
     st.markdown('</div>', unsafe_allow_html=True)
-education_section()
+_, col1, _ = st.columns([1, 7, 1])
+with col1:
+    education_section()
 
 st.markdown("---")
 
