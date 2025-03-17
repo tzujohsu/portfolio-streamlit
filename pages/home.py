@@ -1,13 +1,18 @@
 import streamlit as st
-from css import css
-from projects import *
+from css import css, experience_css, education_css, experience_card_template
+from portfolio_data import *
 from utils.components import *
 from streamlit_lottie import st_lottie
+
+from datetime import datetime
+import pandas as pd
+import base64
 
 
 # Apply CSS
 st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
+# Intro
 col1, col2 = st.columns([1, 1])
 with col1:
     st.markdown(
@@ -59,9 +64,16 @@ with col1:
         """, 
         unsafe_allow_html=True
     )
+
+# Profile Picture
 with col2:
-    lottie_url = 'https://lottie.host/61a7a446-fd25-4d9d-942e-c6488aaf4e0c/ql1mK101vy.json'
-    st_lottie(lottie_url, key="user", height=300, speed=1)
+    # lottie_url = 'https://lottie.host/61a7a446-fd25-4d9d-942e-c6488aaf4e0c/ql1mK101vy.json'
+    # st_lottie(lottie_url, key="user", height=300, speed=1)
+    file_ = open('img/jo.JPG', "rb")
+    contents = file_.read()
+    data_url = base64.b64encode(contents).decode("utf-8")
+    file_.close()
+    st.markdown(f'<br><br><img src="data:image/png;base64,{data_url}" alt="Jocelyn" style="max-width: 90%;">', unsafe_allow_html=True)
 
 st.markdown("---")
 
@@ -71,9 +83,99 @@ st.markdown(project_section, unsafe_allow_html=True)
 
 st.markdown("---")
 
-# # Skills Section
+# Experience Section
 
-# st.subheader("🛠️ Technical Skills")
+# Function to generate the experience card
+def generate_experience_card(exp):
+    # Determine whether to use image or placeholder for logo
+    if exp.get('logo') and exp['logo'].strip():
+        
+        file_ = open(exp.get('logo'), "rb")
+        contents = file_.read()
+        data_url = base64.b64encode(contents).decode("utf-8")
+        file_.close()
+        # <img src="data:image/png;base64,{data_url}">
+        logo_html = f'<div class="company-logo"><img src="data:image/png;base64,{data_url}" alt="{exp["company"]} logo" /></div>'
+    else:
+        logo_html = f'<div class="logo-placeholder" style="background-color: {exp["color"]}; color: white;">{exp["logo_initial"]}</div>'
+    
+    highlights_html = "".join([f'<span class="highlight-tag">{tag}</span>' for tag in exp['highlights']])
+    department = f" - {exp['department']}" if exp.get('department') else ""
+    
+    # Replace placeholders with actual values
+    rendered_card = experience_card_template.format(
+        role=exp['role'],
+        company=exp['company'],
+        department=department,
+        duration=exp['duration'],
+        tenure=exp['tenure'],
+        location=exp['location'],
+        type=exp['type'],
+        description=exp['description'],
+        logo_html=logo_html,
+        highlights_html=highlights_html
+    )
+    
+    return rendered_card
+
+def experience_section():
+    # Add custom CSS for styling
+    st.markdown(experience_css, unsafe_allow_html=True)
+    # Main experience section
+    st.markdown('<h3 class="section-title">🚀 PROFESSIONAL JOURNEY</h3>', unsafe_allow_html=True)
+    st.markdown('<div class="experience-container">', unsafe_allow_html=True)
+    for exp in experiences:
+        st.markdown(generate_experience_card(exp), unsafe_allow_html=True)
+
+    st.markdown('</div>', unsafe_allow_html=True) 
+experience_section()
+
+st.markdown("---")
+
+# Education Section
+
+def generate_education_card(exp):
+    if exp.get('logo') and exp['logo'].strip():
+        file_ = open(exp.get('logo'), "rb")
+        contents = file_.read()
+        data_url = base64.b64encode(contents).decode("utf-8")
+        file_.close()
+        logo_html = f'<div class="education-logo"><img src="data:image/png;base64,{data_url}" alt="{exp["university"]} logo" /></div>'
+    else:
+        logo_html = f'''<div class="education-logo"><div class="logo-placeholder" style="background-color: {exp['color']}; color: white;">{exp['logo_initial']}</div></div>'''
+
+    
+    return f'''
+    <div class="education-card">
+        <div class="education-details">
+            <div class="university-name">{exp['university']}</div>
+            <div class="degree">{exp['degree']}</div>
+            <div class="duration">
+                <span>🗓️</span>
+                <span>{exp['duration']}</span>
+            </div>
+        </div>
+        {logo_html}
+    </div>
+    '''
+
+def education_section():
+    st.markdown(education_css, unsafe_allow_html=True)
+    st.markdown('<h3 class="education-section-title">🎓 EDUCATION</h3>', unsafe_allow_html=True)
+    st.markdown('<div class="education-container">', unsafe_allow_html=True)
+
+    for edu in education:
+        st.markdown(generate_education_card(edu), unsafe_allow_html=True)
+    
+    
+
+    st.markdown('</div>', unsafe_allow_html=True)
+education_section()
+
+st.markdown("---")
+
+# Skills Section
+
 _, col1, _ = st.columns([1, 7, 1])
 
 with col1:
@@ -95,7 +197,7 @@ with col1:
     skills = {
         "📊 Data Science & Analytics": ["Predictive Modeling", "Statistical Analysis", 'LLM', 'NLP'],
         "⚙️ Programming & Engineering": ["Python", "R", "SQL", "APIs", "ETL"],
-        "☁️ Cloud & DevOps": ["AWS (SageMaker, EC2, S3)", "Docker", "FastAPI", "MLFlow", "SQL Server", "MySQL", "Linux"],
+        "☁️ Cloud & DevOps": ["AWS", "Docker", "FastAPI", "MLFlow", "SQL Server", "MySQL", "Linux"],
         "📈 Data Visualization & BI": ["Tableau", "Looker Studio", "Matplotlib", "Seaborn"]
     }
 
@@ -104,6 +206,3 @@ with col1:
         st.markdown(f"**{category}**")
         highlighted_skills = "  ".join([f"<span class='highlight'>{skill}</span>" for skill in tools])
         st.markdown(f"{highlighted_skills}", unsafe_allow_html=True)
-
-# Optional: Add a subtle horizontal line for separation
-st.markdown("---")
