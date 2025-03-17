@@ -150,10 +150,10 @@ with st_normal():
     st.markdown("""
     <div class='section'>
 
-    #### 📊 Motivation
+    #### 💡 Motivation and Plan
     When navigating websites or documents with numerous timestamps, quickly understanding their chronological logic can be challenging. Current chatbot interactions, such as ChatGPT, are primarily conversational, making it difficult to extract and summarize structured information from large volumes of text data.
     In this project, I aim to provide meaningful insights by analyzing how topics, sentiments, and trends evolve over time in content like news transcripts and podcasts. I plan to leverage time-stamped data to build a structured knowledge base.
-    By applying advanced NLP and visualization techniques, I seek to help users explore trends, events, and insights in a more organized and actionable way.
+    By applying advanced NLP and visualization techniques, I seek to help users explore trends, events, and insights in a more organized and actionable way. This project now features a timeline summarizer, with future plans to include sentiment and trend analysis.
     </div>
     """, unsafe_allow_html=True)
 
@@ -164,7 +164,7 @@ with st_normal():
     #### 📚 Data Retrieval and Storage
     I leveraged **GitHub Actions** to scrape the CNN News Central transcripts **everyday**. The data is vectorized with **all-MiniLM-L6-v2** and stored in Chroma database. 
     Given the limitations of the free tier, I keep the time range of the transcripts within approximately a month.
-    The current date range is within {min_date} - {max_date}.
+    The current date range is within {min_date} - {max_date}. (Note that there are some gaps on days when the podcast wasn't aired.)
     </div>
     """, unsafe_allow_html=True)
 
