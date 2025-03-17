@@ -31,7 +31,7 @@ experiences = [
             "duration": "Aug 2024 - Dec 2024",
             "tenure": "5 months",
             "location": "Ann Arbor, MI, USA",
-            "description": "GSI fo the course SI650/EECS549 - Information Retrieval. <br> Led weekly discussions and designed course assignments focused on building search engines, ranking optimization, and personalization. Provided hands-on support during office hours.",
+            "description": "GSI for the course SI650/EECS549 - Information Retrieval. <br> Led weekly discussions and designed course assignments focused on building search engines, ranking optimization, and personalization. Provided active instruction and support for 50+ students.",
             "logo": "img/umich.png",
             "logo_initial": "UM",
             "color": "#00274C",  # Michigan Blue
