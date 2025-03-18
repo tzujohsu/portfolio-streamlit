@@ -29,7 +29,7 @@ css = """
     position: absolute;
     top: -12px;
     left: 24px;
-    background-color: #6A9C89;
+    background-color: #6691be;
     color: white;
     padding: 4px 16px;
     border-radius: 4px;
@@ -90,7 +90,7 @@ css = """
     justify-content: center;  /* Centers the button */
     align-items: center;  /* Vertically centers the content */
     padding: 0.4rem 1rem;  /* Narrower height */
-    background-color: #A3D1C6;  /* Greyish blue color */
+    background-color: #9db7d2;  /* Greyish blue color */
     color: white;
     border: none;
     border-radius: 0.375rem;
