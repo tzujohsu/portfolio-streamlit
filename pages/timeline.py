@@ -122,10 +122,9 @@ with st_normal():
             retrieved_df = retriever.get_similarity_search(user_input)
             
             # Generate timeline
-            summarized_list = generator.get_summary(retrieved_df, user_input)
+            summarized_list = generator.get_summary(retrieved_df, user_input=user_input)
             timeline_data = generator.get_timeline_data(summarized_list, user_input)
-            # timeline_data_json = json.dumps(timeline_data)
-            # timeline(timeline_data_json, height=600)
+            
 
             char_sum = 0
             for event in timeline_data:

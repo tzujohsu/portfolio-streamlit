@@ -57,28 +57,7 @@ class HuggingfaceTimelineGenerator:
 
         return summarized_list
 
-    def get_timeline_data(self, summarized_list, user_prompt):
-        # # A streamlit template, comment out for future use.
-        
-        # timeline = self.timeline_template.copy()
-        # timeline['title']['text']['text'] = f"User Input: {user_prompt}"
-        # timeline['events'] = []
-        # for item in summarized_list:
-        #     date, text = item['date'], str(item['content'])
-        #     timeline['events'].append({
-        #         "start_date": {
-        #             "year": date.year,
-        #             "month": date.month,
-        #             "day": date.day,
-        #             "minute": 0,
-        #             "second": 0,
-        #             "microsecond": 0
-        #         },
-        #         "text": {
-        #             "headline": f"Events about {user_prompt}",
-        #             "text": f" {text} "
-        #         }
-        #     })
+    def get_timeline_data(self, summarized_list, user_input):
 
         events = []
         for item in summarized_list:
@@ -97,9 +76,9 @@ class OpenAITimelineGenerator:
         with open('timeline_template.json', "r") as f:
             self.timeline_template = json.load(f)
 
-    def get_timeline_data(self, summarized_list, user_prompt):
+    def get_timeline_data(self, summarized_list, user_input):
         timeline = self.timeline_template.copy()
-        timeline['title']['text']['text'] = f"Timeline of events: {user_prompt}"
+        timeline['title']['text']['text'] = f"Timeline of events: {user_input}"
         timeline['events'] = []
         for item in summarized_list:
             date, text = item['date'], str(item['content'])
@@ -119,17 +98,17 @@ class OpenAITimelineGenerator:
             })
         return timeline
 
-    def get_summary(self, retrieved_df, user_prompt):
+    def get_summary(self, retrieved_df, user_input):
         content_df = retrieved_df.groupby('date')['content'].apply(
             lambda x: ' ==== next segment ==== '.join(x)).reset_index()
         summarized_list = []
-        query = f"""Please summarize the content that is directly related to '{user_prompt}' into at most 4 straightforward bullet points.
-                    If the content is not really related to '{user_prompt}', please return NA. These content are podcast news transcripts.
+        query = f"""Please summarize the content that is directly related to '{user_input}' into at most 4 straightforward bullet points.
+                    If the content is not really related to '{user_input}', please return NA. These content are podcast news transcripts.
                     Add <br> between each bullet point. Be concise, do not return irrelevant explanations"""
         
         for i, v in content_df.iterrows():
             date, context = v[0], v[1]
-            prompt_messages = self.prepare_messages(query, context, [], f"summarize the content related to '{user_prompt}' into bullet points")
+            prompt_messages = self.prepare_messages(query, context, [], f"summarize the content related to '{user_input}' into bullet points")
             completion = self.client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=prompt_messages
