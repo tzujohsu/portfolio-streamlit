@@ -79,7 +79,7 @@ def clear_text():
     st.session_state.user_input = ""
 
 # Helper function to generate display sample
-sample_inputs = ['tariff', 'chatgpt', 'plane crashes', 'trade war', 'Artificial Intelligence']
+sample_inputs = ['tariff', 'NASA astronauts return', 'plane crashes', 'trade war', 'Artificial Intelligence']
 def generate_random_sample():
     random_sample = random.choice(sample_inputs)
     st.session_state.user_input = random_sample
@@ -122,7 +122,7 @@ with st_normal():
             retrieved_df = retriever.get_similarity_search(user_input)
             
             # Generate timeline
-            summarized_list = generator.get_summary(retrieved_df)
+            summarized_list = generator.get_summary(retrieved_df, user_input)
             timeline_data = generator.get_timeline_data(summarized_list, user_input)
             # timeline_data_json = json.dumps(timeline_data)
             # timeline(timeline_data_json, height=600)
@@ -132,7 +132,7 @@ with st_normal():
                 _, description = event['title'], event['description']
                 char_sum += len(description)
             
-            html(generate_timeline_html(timeline_data), height=345*char_sum//500+400)  # Increased height for better scrolling 
+            html(generate_timeline_html(timeline_data), height=330*char_sum//500+400)  # Increased height for better scrolling 
 
     st.markdown("---")
 

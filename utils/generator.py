@@ -22,11 +22,12 @@ class HuggingfaceTimelineGenerator:
         with open('timeline_template.json', "r") as f:
             self.timeline_template = json.load(f)
         self.API_URL = f"https://api-inference.huggingface.co/models/{model_name}"
-        self.headers = {"Authorization": 'Bearer ' + st.secrets["HUGGINGFACE_TOKEN"]}
-        self.prompt = """Summarize the following content into 3 full sentences ONLY and nothing else. Be concise and focus on the fact. 
+        self.headers = {"Authorization": 'Bearer ' + st.secrets["HUGGINGFACE_TOKEN2"]}
+        self.prompt = """Summarize the following content that's DIRECTLY related to {0} into 3 full sentences ONLY and nothing else. 
+                        Be concise and focus on the fact. Make sure the summarization is connected to the {0}.
                         Add html line break "<br>" between each sentence, Return as 1. <br> 2. <br> 3. <br> \n [Content] """
 
-    def get_summary(self, retrieved_df):
+    def get_summary(self, retrieved_df, user_input):
         content_df = retrieved_df.groupby('date')['content'].apply(
             lambda x: ' ==== next segment ==== '.join(x)).reset_index()
         
@@ -34,11 +35,14 @@ class HuggingfaceTimelineGenerator:
         for i, v in content_df.iterrows():
             date, context = v.iloc[0], v.iloc[1]
             
-            payload = {
-                'inputs': self.prompt + context + ' [Result] '
-            }
+            payload = {'inputs': self.prompt.format(user_input) + context + ' [Result] '}
             response = requests.post(self.API_URL, headers=self.headers, json=payload)
+            
+            if response.status_code != 200:
+                st.error(response.json())
+                return []
             summarized_result = response.json()[0]['generated_text'].split('[Result]')[1].strip()
+            
             try:
                 summarized_results = summarized_result.split('<br>')
                 summarized_result = '<br> <br> '.join([result.strip() for result in summarized_results])
