@@ -59,7 +59,7 @@ experiences = [
             "duration": "Feb 2023 - Jul 2023",
             "tenure": "6 months",
             "location": "Taipei, Taiwan",
-            "description": "Optimized marketing campaigns through dashboards analyzing social data and developing GPT4 chatbot to generate customized marketing content.",
+            "description": "Enhanced marketing campaigns by creating dashboards to analyze social data and developing GPT4 chatbot to generate customized marketing content for brand owners.",
             "logo": "img/GM.png",
             "logo_initial": "GM",
             "color": "#FF5722",  # Marketing orange
@@ -73,7 +73,7 @@ experiences = [
             "duration": "Feb 2021 - Jul 2021",
             "tenure": "6 months",
             "location": "Hsinchu City, Taiwan",
-            "description": "Automated the data querying processes via chatbot to provide a comprehensive sales overview for fast retrieval.",
+            "description": "Streamlined data querying by automating the process through a chatbot, enabling quick access to comprehensive sales insights from Excel pivot tables.",
             "logo": "",
             "logo_initial": "NB",            
             "color": "#00529B",  # Neuberger blue
@@ -93,7 +93,7 @@ education = [
         {
             "university": "National Yang Ming Chiao Tung University",
             "degree": "BBA in Finance (Arete Honors Program)",
-            "duration": "Sep 2019 - Jun 2023 · Hsinchu, Taiwan",
+            "duration": "Sep 2019 - Jun 2023 · Hsinchu, Taiwan · Concentration: Fintech & Data Science",
             "logo":"img/NYCU.png",
             "logo_initial": "NYCU",
             "color": "#0033A0"  # University blue
