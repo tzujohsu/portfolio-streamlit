@@ -149,10 +149,11 @@ with st_normal():
     st.markdown("""
     <div class='section'>
 
-    #### 💡 Motivation and Plan
-    When navigating websites or documents with numerous timestamps, quickly understanding their chronological logic can be challenging. Current chatbot interactions, such as ChatGPT, are primarily conversational, making it difficult to extract and summarize structured information from large volumes of text data.
-    In this project, I aim to provide meaningful insights by analyzing how topics, sentiments, and trends evolve over time in content like news transcripts and podcasts. I plan to leverage time-stamped data to build a structured knowledge base.
-    By applying advanced NLP and visualization techniques, I seek to help users explore trends, events, and insights in a more organized and actionable way. This project now features a timeline summarizer, with future plans to include sentiment and trend analysis.
+    #### 💡 Motivation
+    Navigating websites or documents with numerous timestamps can make it difficult to grasp their chronological flow. 
+    While chatbots like ChatGPT excel at conversation, they struggle to extract and present structured insights from large volumes of text. 
+    This project addresses that gap by generating meaningful timelines from content such as news transcripts and podcasts, helping users visualize how events evolve over time. 
+    Currently, it features a timeline summarizer, with future plans to incorporate sentiment and trend analysis.
     </div>
     """, unsafe_allow_html=True)
 
