@@ -21,7 +21,8 @@ class HuggingfaceTimelineGenerator:
         self.system_message = ""
         with open('timeline_template.json', "r") as f:
             self.timeline_template = json.load(f)
-        self.API_URL = f"https://api-inference.huggingface.co/models/{model_name}"
+        # 2025/03/20 update
+        self.API_URL = f"https://router.huggingface.co/hf-inference/models/{model_name}"
         self.headers = {"Authorization": 'Bearer ' + st.secrets["HUGGINGFACE_TOKEN2"]}
         self.prompt = """Summarize the following content that's DIRECTLY related to {0} into 3 full sentences ONLY and nothing else. 
                         Be concise and focus on the fact. Make sure the summarization is connected to the {0}.
