@@ -2,7 +2,6 @@ import streamlit as st
 from css import css, experience_css, education_css, experience_card_template
 from portfolio_data import *
 from utils.components import *
-from streamlit_lottie import st_lottie
 
 from datetime import datetime
 import pandas as pd
@@ -68,8 +67,6 @@ with col1:
 # Profile Picture
 
 with col2:
-    # lottie_url = 'https://lottie.host/61a7a446-fd25-4d9d-942e-c6488aaf4e0c/ql1mK101vy.json'
-    # st_lottie(lottie_url, key="user", height=300, speed=1)
     file_ = open('img/jo.JPG', "rb")
     contents = file_.read()
     data_url = base64.b64encode(contents).decode("utf-8")
