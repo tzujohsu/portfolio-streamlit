@@ -202,9 +202,9 @@ with col1:
 
     # Skills Dictionary
     skills = {
-        "📊 Data Science & Analytics": ["Predictive Modeling", "Statistical Analysis", 'LLM', 'NLP'],
+        "📊 Data Science & Analytics": ["Predictive Modeling", "Statistical Analysis", 'LLM', 'NLP', "Hypothesis Testing"],
         "⚙️ Programming & Engineering": ["Python", "R", "SQL", "APIs", "ETL"],
-        "☁️ Cloud & DevOps": ["AWS", "Docker", "FastAPI", "MLFlow", "SQL Server", "MySQL", "Linux"],
+        "☁️ Cloud & DevOps": ["AWS", "Docker", "FastAPI", "SQL Server", "MySQL", "Linux"],
         "📈 Data Visualization & BI": ["Tableau", "Looker Studio", "Matplotlib", "Seaborn"]
     }
 
