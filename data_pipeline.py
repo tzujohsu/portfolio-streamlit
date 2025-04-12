@@ -12,10 +12,9 @@ docloader = DocumentLoader()
 print('step 1: load the vector database done')
 print('\t# docs in the current database: ', len(docloader.vector_store.get()['documents']))
 
-
 # step 2: 
 documents = docloader.load_documents_from_scraping(start_date=today_date , latest=True)
-# documents = docloader.load_documents_from_scraping(start_date=(datetime.now() - timedelta(days=2)), end_date= (datetime.now() - timedelta(days=35)), latest=False)
+# documents = docloader.load_documents_from_scraping(start_date=(datetime.now() - timedelta(days=2)), end_date= (datetime.now() - timedelta(days=32)), latest=False)
 print('step 2: scrape the latest news done')
 
 # step 3:
