@@ -27,6 +27,6 @@ else:
 print('\t# docs in the current database: ', len(docloader.vector_store.get()['documents']))
 
 # step 4
-docloader.remove_documents(cutoff_threshold=35)
+docloader.remove_documents(cutoff_threshold=32)
 print('step 4: remove the oldest transcripts done')
 print('\t# docs in the current database: ', len(docloader.vector_store.get()['documents']))
