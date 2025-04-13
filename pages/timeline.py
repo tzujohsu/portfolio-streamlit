@@ -79,7 +79,7 @@ def clear_text():
     st.session_state.user_input = ""
 
 # Helper function to generate display sample
-sample_inputs = ['tariff', 'NASA astronauts return', 'plane crashes', 'trade war', 'Artificial Intelligence']
+sample_inputs = ['tariff', 'NASA astronauts return', 'plane crashes', 'trade war', 'Artificial Intelligence', 'New York', 'visa revoke']
 def generate_random_sample():
     random_sample = random.choice(sample_inputs)
     st.session_state.user_input = random_sample
@@ -131,7 +131,7 @@ with st_normal():
                 _, description = event['title'], event['description']
                 char_sum += len(description)
             
-            html(generate_timeline_html(timeline_data), height=330*char_sum//500+400)  # Increased height for better scrolling 
+            html(generate_timeline_html(timeline_data), height=350*char_sum//500+300)  # Increased height for better scrolling 
 
     st.markdown("---")
 
