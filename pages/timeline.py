@@ -79,7 +79,7 @@ def clear_text():
     st.session_state.user_input = ""
 
 # Helper function to generate display sample
-sample_inputs = ['tariff', 'NASA astronauts return', 'plane crashes', 'trade war', 'Artificial Intelligence', 'New York', 'visa revoke']
+sample_inputs = ['tariff', 'plane crashes', 'trade war', 'Artificial Intelligence', 'New York', 'visa revoke']
 def generate_random_sample():
     random_sample = random.choice(sample_inputs)
     st.session_state.user_input = random_sample
