@@ -1,3 +1,4 @@
+streamlit
 pysqlite3-binary
 beautifulsoup4
 st-pages
@@ -8,8 +9,6 @@ langchain_chroma
 langchain_community
 langchain-openai
 langchain_text_splitters
-langchain_community
 streamlit_timeline
 sentence-transformers
 langchain_huggingface
-streamlit-lottie
