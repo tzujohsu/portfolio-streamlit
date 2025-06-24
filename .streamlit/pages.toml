@@ -1,6 +1,7 @@
 [[pages]]
 path = "pages/home.py"
 name = "Jocelyn's Portfolio Intro"
+icon = ":potted_plant:"
 
 [[pages]]
 path = "pages/mlb-categorization.py"
